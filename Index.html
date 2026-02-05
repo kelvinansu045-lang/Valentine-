@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Valentine Invitation</title>
+    <style>
+        body {
+            background-color: #ffe6e6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden; /* Prevents scrollbars if the button jumps far */
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 1;
+        }
+        h1 { color: #ff4d6d; margin-bottom: 10px; }
+        p { font-size: 1.1rem; color: #555; }
+        .heart {
+            font-size: 60px;
+            animation: beat .3s infinite alternate;
+        }
+        @keyframes beat {
+            to { transform: scale(1.2); }
+        }
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        #yesBtn { background-color: #ff4d6d; color: white; }
+        #noBtn { 
+            background-color: #ddd; 
+            color: #555; 
+            position: absolute; /* Needed for the movement */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="heart">💖</div>
+        <h1>Will you be my Valentine?</h1>
+        <p>I promise it'll be a night to remember!</p>
+        <div class="buttons">
+            <button id="yesBtn" onclick="celebrate()">Yes!</button>
+            <button id="noBtn" onmouseover="moveButton()">No</button>
+        </div>
+    </div>
+
+    <script>
+        function moveButton() {
+            const btn = document.getElementById('noBtn');
+            // Calculate random positions within the window
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        function celebrate() {
+            alert('Yay! Best decision ever! ❤️ I\'ll see you then!');
+            // Optional: Redirect to a photo of you two or a dinner menu
+            // window.location.href = "https://your-link-here.com";
+        }
+    </script>
+
+</body>
+</html>
